@@ -18,6 +18,19 @@ B) Compound columns like "Дебет" / "Кредит" where a single cell conta
 - Redaction of PII-like tokens inside "purpose".
 - Optional fixed shift for transaction dates to keep seasonality but break real calendar alignment.
 - Preserves numeric amounts; coerces to numbers where possible.
+
+
+python main.py \
+  --in /path/to/input.xlsx \
+  --out /path/to/output.xlsx \
+  --salt "Твой_секретный_ключ" \
+  --in-date "Дата проводки" \
+  --in-debit "Дебет" \
+  --in-credit "Кредит" \
+  --in-debit-amount "Сумма дебета" \
+  --in-credit-amount "Сумма кредита" \
+  --in-purpose "Назначение платежа" \
+  --date-shift-days 0
 """
 import argparse
 import hashlib
